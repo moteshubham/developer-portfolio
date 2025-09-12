@@ -83,7 +83,7 @@ const CodingGraphic = () => (
 
 const Skills = () => {
   return (
-    <div className="max-w-7xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       <h2 className="text-3xl font-bold mb-12 text-center">Skills & Technologies</h2>
       <div className="grid lg:grid-cols-2 gap-12 items-start">
         {/* Left half - Skills */}
@@ -94,7 +94,7 @@ const Skills = () => {
         </div>
         
         {/* Right half - Coding graphic */}
-        <div className="hidden lg:block">
+        <div className="hidden my-auto lg:block">
           <CodingGraphic />
         </div>
       </div>

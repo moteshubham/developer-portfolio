@@ -14,7 +14,7 @@ const Contact = () => {
 
   return (
     <footer className="bg-zinc-900/50 border-t border-zinc-800">
-      <div className="max-w-6xl mx-auto px-6 py-12">
+      <div className="max-w-5xl mx-auto px-6 py-12">
         {/* Contact Info */}
         <div className="text-center mb-8">
           <h2 className="text-2xl font-bold mb-2">Let's Connect</h2>
