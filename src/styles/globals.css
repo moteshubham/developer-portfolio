@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 24 24 27; /* zinc-900 */
+  --fg: 244 244 245; /* zinc-100 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-zinc-900 text-zinc-100 antialiased;
+}
+
+.angled-divider {
+  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%);
+}
+
+.card {
+  @apply bg-zinc-800/60 backdrop-blur border border-zinc-700 rounded-xl shadow-lg;
+}
+
+.card-hover {
+  @apply transition-transform duration-300 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10;
+}
+
+

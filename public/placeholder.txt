@@ -1,0 +1,6 @@
+Placeholders:
+- Add your favicon as favicon.ico
+- Add your profile image as profile.jpg
+- Add your resume PDF as resume.pdf
+
+
