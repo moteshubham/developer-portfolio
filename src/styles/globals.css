@@ -13,10 +13,13 @@ html {
 
 body {
   @apply bg-zinc-900 text-zinc-100 antialiased;
+  font-family: Inter, sans-serif;
 }
 
 .angled-divider {
-  clip-path: polygon(0 0, 100% 8%, 100% 100%, 0 92%);
+  background:   rgb(139 92 246 / 0.3); 
+  clip-path: polygon(0 0, 100% 5%, 100% 100%, 0% 95%);
+  z-index: -3;
 }
 
 .card {

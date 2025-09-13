@@ -4,18 +4,18 @@ import { basics } from '../data/experience.js';
 
 const Hero = () => {
   return (
-    <div className="text-left max-w-6xl mx-auto px-6">
+    <div className="text-left max-w-5xl mx-auto sm:px-12 lg:pl-0 lg:pr-12 w-full">
       <motion.h1
         className="text-6xl sm:text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-none"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
       >
         {basics.name}
       </motion.h1>
       <motion.p
         className="mt-6 text-xl sm:text-2xl md:text-3xl text-zinc-300 font-light"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 25 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
@@ -26,7 +26,7 @@ const Hero = () => {
         initial="hidden"
         animate="show"
         variants={{
-          hidden: { opacity: 0, y: 20 },
+          hidden: { opacity: 0, y: 25 },
           show: { opacity: 1, y: 0, transition: { staggerChildren: 0.15 } },
         }}
       >
