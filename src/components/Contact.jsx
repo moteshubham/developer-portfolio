@@ -1,16 +1,18 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { basics } from '../data/experience.js';
+import { FaLinkedin, FaGithub, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
+
 
 const Contact = () => {
   const socialLinks = [
-    { name: 'LinkedIn', icon: 'in', url: basics.links.linkedin, color: 'hover:text-blue-400' },
-    // { name: 'Medium', icon: 'M', url: 'https://medium.com/@REPLACE_ME', color: 'hover:text-green-400' },
-    { name: 'GitHub', icon: 'gh', url: basics.links.github, color: 'hover:text-gray-300' },
-    { name: 'Instagram', icon: 'ig', url: 'https://instagram.com/iamshubhammote', color: 'hover:text-pink-400' },
-    { name: 'Twitter', icon: 'tw', url: 'https://twitter.com/iamshubhammote', color: 'hover:text-blue-300' },
-    { name: 'YouTube', icon: 'yt', url: 'https://youtube.com/ShubhamMotePatil', color: 'hover:text-red-400' },
+    { name: 'LinkedIn', icon: <FaLinkedin size={20} />, url: basics.links.linkedin, color: 'hover:text-blue-400' },
+    { name: 'GitHub', icon: <FaGithub size={20} />, url: basics.links.github, color: 'hover:text-gray-300' },
+    { name: 'Instagram', icon: <FaInstagram size={20} />, url: 'https://instagram.com/iamshubhammote', color: 'hover:text-pink-400' },
+    { name: 'Twitter', icon: <FaTwitter size={20} />, url: 'https://twitter.com/iamshubhammote', color: 'hover:text-blue-300' },
+    { name: 'YouTube', icon: <FaYoutube size={20} />, url: 'https://youtube.com/ShubhamMotePatil', color: 'hover:text-red-400' },
   ];
+  
 
   return (
     <footer className="bg-zinc-900/50 border-t border-zinc-800">
@@ -43,20 +45,21 @@ const Contact = () => {
           <div className="flex items-center justify-center gap-4 flex-wrap">
             {socialLinks.map((social, index) => (
               <motion.a
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noreferrer"
-                className={`w-12 h-12 rounded-full bg-zinc-800/40 border border-zinc-700/50 text-zinc-400 hover:border-zinc-600 transition-all duration-150 hover:scale-110 flex items-center justify-center ${social.color}`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.1, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                title={social.name}
-              >
-                <span className="text-sm font-bold">{social.icon}</span>
-              </motion.a>
+              key={social.name}
+              href={social.url}
+              target="_blank"
+              rel="noreferrer"
+              className={`w-12 h-12 rounded-full bg-zinc-800/40 border border-zinc-700/50 text-zinc-400 hover:border-zinc-600 transition-all duration-150 hover:scale-110 flex items-center justify-center ${social.color}`}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              title={social.name}
+            >
+              {social.icon}
+            </motion.a>
+            
             ))}
           </div>
         </div>
