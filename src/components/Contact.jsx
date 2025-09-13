@@ -5,11 +5,11 @@ import { basics } from '../data/experience.js';
 const Contact = () => {
   const socialLinks = [
     { name: 'LinkedIn', icon: 'in', url: basics.links.linkedin, color: 'hover:text-blue-400' },
-    { name: 'Medium', icon: 'M', url: 'https://medium.com/@REPLACE_ME', color: 'hover:text-green-400' },
+    // { name: 'Medium', icon: 'M', url: 'https://medium.com/@REPLACE_ME', color: 'hover:text-green-400' },
     { name: 'GitHub', icon: 'gh', url: basics.links.github, color: 'hover:text-gray-300' },
-    { name: 'Instagram', icon: 'ig', url: 'https://instagram.com/REPLACE_ME', color: 'hover:text-pink-400' },
-    { name: 'Twitter', icon: 'tw', url: 'https://twitter.com/REPLACE_ME', color: 'hover:text-blue-300' },
-    { name: 'YouTube', icon: 'yt', url: 'https://youtube.com/@REPLACE_ME', color: 'hover:text-red-400' },
+    { name: 'Instagram', icon: 'ig', url: 'https://instagram.com/iamshubhammote', color: 'hover:text-pink-400' },
+    { name: 'Twitter', icon: 'tw', url: 'https://twitter.com/iamshubhammote', color: 'hover:text-blue-300' },
+    { name: 'YouTube', icon: 'yt', url: 'https://youtube.com/ShubhamMotePatil', color: 'hover:text-red-400' },
   ];
 
   return (
