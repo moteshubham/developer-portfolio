@@ -5,7 +5,7 @@ import { projects } from '../data/projects.js';
 const Projects = () => {
   return (
     <div className="max-w-5xl mx-auto">
-      <h2 className="text-3xl font-bold mb-12 text-center">Featured Projects</h2>
+      <h2 className="text-3xl font-bold mb-12 text-center">Professional Projects</h2>
       <div className="grid gap-8 md:grid-cols-2">
         {projects.map((p, index) => (
           <motion.div 
@@ -42,12 +42,12 @@ const Projects = () => {
               </div>
             </div>
             
-            <div className="flex items-center justify-between">
+            {/* <div className="flex items-center justify-between">
               <div className="flex items-center gap-4">
                 {p.github && (
                   <motion.a
                     href={p.github}
-                    target="_blank"
+                    target="_self"
                     rel="noreferrer"
                     className="flex items-center gap-2 px-4 py-2 rounded-lg bg-accent/10 border border-accent/30 text-accent-soft hover:bg-accent/20 hover:scale-105 transition-all duration-300"
                     whileHover={{ scale: 1.05 }}
@@ -62,7 +62,7 @@ const Projects = () => {
               <div className="text-sm text-zinc-500">
                 Project #{index + 1}
               </div>
-            </div>
+            </div> */}
           </motion.div>
         ))}
       </div>

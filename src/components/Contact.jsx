@@ -29,7 +29,7 @@ const Contact = () => {
               📧 Email Me
             </a>
             <a 
-              href="/resume.pdf" 
+              href="/Shubham_Mote_Full_Stack_Developer_Resume.pdf" 
               target="_blank" 
               rel="noreferrer"
               className="px-6 py-3 rounded-xl bg-zinc-800/60 border border-zinc-700 text-zinc-200 hover:border-accent/50 hover:bg-accent/10 transition-all duration-150 hover:scale-105"
@@ -79,5 +79,3 @@ const Contact = () => {
 };
 
 export default Contact;
-
-
