@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const links = [
-  { id: 'hero', label: 'Home', icon: '🏠' },
-  { id: 'about', label: 'About', icon: '👤' },
-  { id: 'skills', label: 'Skills', icon: '🛠️' },
-  { id: 'projects', label: 'Projects', icon: '📦' },
-  { id: 'contact', label: 'Contact', icon: '✉️' },
+  { id: 'hero', label: 'Home', icon: '🏠', type: 'scroll' },
+  { id: 'about', label: 'About', icon: '👤', type: 'scroll' },
+  { id: 'skills', label: 'Skills', icon: '🛠️', type: 'scroll' },
+  { id: 'projects', label: 'Projects', icon: '📦', type: 'scroll' },
+  { id: 'contact', label: 'Contact', icon: '✉️', type: 'scroll' },
+  { id: 'challenges', label: 'Challenges', icon: '🎯', type: 'route', path: '/challenges' },
 ];
 
 const Sidebar = ({ isOpen, onClose }) => {
   const [activeSection, setActiveSection] = useState('hero');
+  const location = useLocation();
 
   useEffect(() => {
+    // Set active section based on current route
+    if (location.pathname === '/challenges') {
+      setActiveSection('challenges');
+      return;
+    }
+
     const handleScroll = () => {
-      const sections = links.map(link => link.id);
+      const scrollLinks = links.filter(link => link.type === 'scroll');
+      const sections = scrollLinks.map(link => link.id);
       const scrollPosition = window.scrollY + 200; // Increased offset for better detection
 
       for (const sectionId of sections) {
@@ -38,11 +48,14 @@ const Sidebar = ({ isOpen, onClose }) => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Check initial position
+    // Only add scroll listener if we're on the home page
+    if (location.pathname === '/') {
+      window.addEventListener('scroll', handleScroll);
+      handleScroll(); // Check initial position
+    }
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [location.pathname]);
 
   const handleScroll = (id) => {
     const el = document.getElementById(id);
@@ -61,27 +74,42 @@ const Sidebar = ({ isOpen, onClose }) => {
       <nav className="hidden lg:flex flex-col gap-3">
         {links.map((link, idx) => {
           const isActive = activeSection === link.id;
+          const isRoute = link.type === 'route';
+          
+          const buttonContent = (
+            <motion.div
+              className={`w-12 h-12 rounded-full backdrop-blur-sm border transition-all duration-150 grid place-items-center shadow-lg ${
+                isActive 
+                  ? 'bg-accent/30 border-accent/60 text-accent-soft shadow-accent/20' 
+                  : 'bg-zinc-800/60 border-zinc-700/50 hover:bg-accent/20 hover:border-accent/50 hover:scale-110 hover:shadow-accent/20'
+              }`}
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 * idx, type: "spring", stiffness: 100 }}
+              whileHover={{ scale: isActive ? 1.05 : 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <span className={`text-lg transition-colors ${isActive ? 'text-accent-soft' : 'group-hover:text-accent-soft'}`} aria-hidden>
+                {link.icon}
+              </span>
+              <span className="sr-only">{link.label}</span>
+            </motion.div>
+          );
+
           return (
             <div key={link.id} className="relative group">
-              <motion.button
-                onClick={() => handleScroll(link.id)}
-                className={`w-12 h-12 rounded-full backdrop-blur-sm border transition-all duration-150 grid place-items-center shadow-lg ${
-                  isActive 
-                    ? 'bg-accent/30 border-accent/60 text-accent-soft shadow-accent/20' 
-                    : 'bg-zinc-800/60 border-zinc-700/50 hover:bg-accent/20 hover:border-accent/50 hover:scale-110 hover:shadow-accent/20'
-                }`}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.1 * idx, type: "spring", stiffness: 100 }}
-                whileHover={{ scale: isActive ? 1.05 : 1.1 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label={link.label}
-              >
-                <span className={`text-lg transition-colors ${isActive ? 'text-accent-soft' : 'group-hover:text-accent-soft'}`} aria-hidden>
-                  {link.icon}
-                </span>
-                <span className="sr-only">{link.label}</span>
-              </motion.button>
+              {isRoute ? (
+                <Link to={link.path} onClick={onClose}>
+                  {buttonContent}
+                </Link>
+              ) : (
+                <button
+                  onClick={() => handleScroll(link.id)}
+                  aria-label={link.label}
+                >
+                  {buttonContent}
+                </button>
+              )}
               
               {/* Tooltip */}
               <motion.div
@@ -133,10 +161,10 @@ const Sidebar = ({ isOpen, onClose }) => {
                 <nav className="flex flex-col gap-4">
                   {links.map((link, idx) => {
                     const isActive = activeSection === link.id;
-                    return (
-                      <motion.button
-                        key={link.id}
-                        onClick={() => handleScroll(link.id)}
+                    const isRoute = link.type === 'route';
+                    
+                    const buttonContent = (
+                      <motion.div
                         className={`flex items-center gap-4 px-4 py-3 rounded-xl transition-all duration-150 ${
                           isActive 
                             ? 'bg-accent/20 border border-accent/30 text-accent-soft' 
@@ -150,7 +178,21 @@ const Sidebar = ({ isOpen, onClose }) => {
                       >
                         <span className="text-xl">{link.icon}</span>
                         <span className="font-medium">{link.label}</span>
-                      </motion.button>
+                      </motion.div>
+                    );
+
+                    return (
+                      <div key={link.id}>
+                        {isRoute ? (
+                          <Link to={link.path} onClick={onClose}>
+                            {buttonContent}
+                          </Link>
+                        ) : (
+                          <button onClick={() => handleScroll(link.id)}>
+                            {buttonContent}
+                          </button>
+                        )}
+                      </div>
                     );
                   })}
                 </nav>

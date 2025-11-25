@@ -1,6 +1,6 @@
 export const basics = {
   name: "Shubham Mote",
-  role: "Full-Stack Developer | React.js, Node.js, Python",
+  role: "Java/Spring Boot Developer | Java, Spring Boot, Kafka, Redis, JWT, Docker, GitHub Actions",
   experience: "3.5+ Years",
   location: "Pune, India",
   email: "moteshubham@gmail.com",
@@ -11,40 +11,36 @@ export const basics = {
     portfolio: "https://www.shubhammote.in", // Optional portfolio URL
   },
   summary:
-    "Full-stack developer with 3.5 years of experience, specializing in React and Node.js, with production experience building enterprise tools, optimizing performance, and automating CI/CD. Passionate about clean UX, maintainable code, and measurable impact.",
-  interests: "Design systems, performance tuning, and video editing.",
-};
-
+    "Java/Spring Boot developer experienced in building scalable backend services, REST APIs, and microservices. Skilled with Kafka, Redis, JWT, Docker, and GitHub Actions. Strong in system integration, performance tuning, and cross-functional collaboration.",
+  interests: "Design systems, performance, video editing.",
+}
 export const experience = [
   {
     company: "PharmaACE",
     title: "Associate Software Developer",
     period: "Apr 2024 - Present",
     points: [
-      "NodeJS backend for SOW Tracker, reduced API response times by 40%",
-      "React UIs for enterprise tools (SOW Tracker, Screener, User Control)",
-      "Migrated PharmaACE.com to TypeScript (React + Node), improved SEO & scalability",
-      "Centralized User Management (JWT auth + RBAC)",
-      "Rebuilt corporate website (React + Node)",
-      "Redux integration for state management",
-      "Unit tests with Jest",
-      "Automated CI/CD with GitHub Actions",
-      "Python Flask APIs integrated with Microsoft Azure for Screener project",
+      "Designed and built backend services and REST API layers for data-heavy enterprise tools.",
+      "Implemented JWT-based authentication, request validation, global exception handling, and response standardization.",
+      "Integrated Spring Boot services with Python Flask microservices via REST and async workflows.",
+      "Improved API performance through optimized payloads, indexing, and caching with Redis.",
+      "Developed event-driven components and internal pipelines using Kafka producers/consumers.",
+      "Built modular backend components using Spring Data JPA, layered architecture, and reusable service patterns.",
+      "Automated deployments using GitHub Actions + Docker, enabling faster backend rollouts.",
+      "Collaborated with analytics/data teams on ingestion flows, transformation logic, and multi-step validation layers."
     ],
   },
   {
-    company: "Sarvosky International System Pvt Ltd",
+    company: "Dataorc LLP",
     title: "Jr. Software Developer",
-    period: "Oct 2021 - Sept 2023",
+    period: "Feb 2019 - March 2024",
     points: [
-      "React + Tailwind UIs",
-      "NodeJS/Express backend APIs",
-      "Performance optimization with UI/UX team",
-      "Implemented REST APIs with MySQL for data management",
-      "Worked on authentication and authorization using JWT",
-      "Collaborated on responsive design and cross-browser compatibility",
-      "Debugged and optimized queries, improving API efficiency",
-      "Contributed to deployment processes and Git-based version control",
+      "Developed backend features using REST APIs, Express, and Spring-style service layers with Java (Spring Boot), Node.js, MySQL, Redis, Swagger.",
+      "Implemented controller - service - repository pattern with clean separation of concerns.",
+      "Improved API reliability by debugging data flow issues and optimizing DB queries.",
+      "Added Redis-based caching to reduce repeated DB hits and speed up dashboard loads.",
+      "Contributed to internal authentication workflows and secure multi-user access flows.",
+      "Implemented role-based access control and permission checks at the API layer."
     ],
   },
 
